@@ -54,11 +54,8 @@ class Photo
     end
   end
 
-  def make_comment("text")
-    
-  end
-
   def make_comment(text)
+    com = Comments.new(self.user, self, text)
   end
 end
 
@@ -75,10 +72,12 @@ puts "photo test: #{User.photos}"
 
 puts "comments: #{sandwich_photo.comments}"
 # # => []
-#
-# sandwich_photo.make_comment("this is such a beautiful photo of your lunch!! I love photos of other people's lunch")
-# sandwich_photo.comments
+
+puts sandwich_photo.make_comment("this is such a beautiful photo of your lunch!! I love photos of other people's lunch")
+puts sandwich_photo.comments
 # # => [#<Comment:0x00007fae28043700>]
-#
-# Comment.all
+
+# binding.pry
+
+puts Comments.all
 # #=> [#<Comment:0x00007fae28043700>]
